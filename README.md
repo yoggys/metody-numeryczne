@@ -1,1 +1,1 @@
-# MN
+# Metody Numeryczne
