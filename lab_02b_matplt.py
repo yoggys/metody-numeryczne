@@ -2,7 +2,7 @@ import time
 import matplotlib.pyplot as plt
 
 def f(x):
-    return x**2-x-1
+    return x**6-x**3+x**2-1
 
 def sieczne(f, x0, x1, N):
     tmp = 0 

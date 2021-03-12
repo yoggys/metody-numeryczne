@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 def f(x):
-    return x**2-x-1
+    return x**6-x**3+x**2-1
 
 def bisection(func, left, right, p):
     while True:
