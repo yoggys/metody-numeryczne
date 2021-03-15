@@ -6,8 +6,12 @@ def f(x):
 def sieczne(f, x0, x1, N):
     tmp = 0 
     for _ in range(N):
-        if f(x1) == 0 or (f(x0)-f(x1)) == 0:
+        if (f(x0)-f(x1)) == 0:
+            x1 -= 1
+        if f(x1) == 0:
             return x1
+        elif f(x0) == 0:
+            return x0
         else:
             tmp = x1-(f(x1)*(x0-x1)/(f(x0)-f(x1)))
             if tmp > x0:

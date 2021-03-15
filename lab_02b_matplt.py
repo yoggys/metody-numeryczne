@@ -9,10 +9,15 @@ def sieczne(f, x0, x1, N):
     for _ in range(N):
         plt.scatter(x0, f(x0), marker='+', color='r')
         plt.scatter(x1, f(x1), marker='+', color='b')
+        plt.plot([x0,x1], [f(x0),f(x1)])
         plt.pause(0.1)
         
-        if f(x1) == 0 or (f(x0)-f(x1)) == 0:
+        if (f(x0)-f(x1)) == 0:
+            x1 -= 1
+        if f(x1) == 0:
             return x1
+        elif f(x0) == 0:
+            return x0
         else:
             tmp = x1-(f(x1)*(x0-x1)/(f(x0)-f(x1)))
             if tmp > x0:
@@ -42,7 +47,7 @@ if __name__ == "__main__":
                 x0 = x1
                 x1 = tmp
                 del tmp
-            
+                 
             begin = time.time()
             out = sieczne(f, x0, x1, n)
             end = time.time()
