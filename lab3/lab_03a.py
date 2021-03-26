@@ -1,6 +1,14 @@
 import numpy as np
 
+def check(a, vx):
+    lgth = len(vx)
+    for i in range(lgth):
+        #a[i][i] < sum(a[i]...)-a[i][i]
+        if 2*a[i][i] < sum([a[i][j] for j in range(lgth)]):
+            raise Exception("Nie jest przekątniowo dominująca!")
+
 def jacobi(a, vx, vb, n):
+    check(a, vx)
     alfa = -np.array(a)
     np.fill_diagonal(alfa, 0)
     alfa = (alfa.T/np.diag(a)).T
