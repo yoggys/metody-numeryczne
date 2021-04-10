@@ -19,7 +19,7 @@ val1, vect1 = power2(A, 1)
 val2, vect2 = power2(A, alfa)
 
 #zmiana wartości alfa na mniejszą wpływa na zmniejszenie wartości części rzeczywistej oraz urojonej
-#druga największa wartość własna w metodzie potęgowej określa zbiezność ilorazu λ1 oraz λ2
+#druga największa wartość własna w metodzie potęgowej określa zbiezność (poprzez iloraz λ1 oraz λ2)
 #czym λ2 jest bardziej zbliżone  do λ1 tym wolniejsza zbieżność
 
 fig, ax = plt.subplots()
