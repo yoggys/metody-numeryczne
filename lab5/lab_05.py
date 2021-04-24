@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import scipy.optimize as opt
 
 def func(x, a, b, c, d):
-    return a*x**3+b*x**2+c*x+d
+    return a*np.sin(x*b)+c*np.exp(-d*x**2)
 
 xlsk, xpsk, points = -5, 5, 100
 amp = 10
