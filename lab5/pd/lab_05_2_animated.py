@@ -17,9 +17,11 @@ xlsk, xpsk, points - to kolejno lewa, prawa granica punktów oraz ich ilość
 
 #zwracana losowa funkcja
 def func():
+    """Zwracana losowa wartość w podanym przedziale."""
     return random.randrange(-5,5)
 
 def calc(x, a, b, c, d):
+    """Obliczana wartość dla zdefiniowanej poniżej funkcji."""
     return a*x**3+b*x**2+c*x+d
 
 xlsk, xpsk, points = -5, 5, random.randint(3,6)
