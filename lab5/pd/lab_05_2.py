@@ -28,38 +28,39 @@ def calc(x, *args):
         calculated += args[ii]*x**(degree-ii)
     return calculated
 
-xlsk, xpsk, points = -5, 5, random.randint(2,10)
-x = np.linspace(xlsk, xpsk, points)
-y = [func() for _ in x]
+if __name__ == "__main__":
+    xlsk, xpsk, points = -5, 5, random.randint(2,10)
+    x = np.linspace(xlsk, xpsk, points)
+    y = [func() for _ in x]
 
-cs = CubicSpline(x, y, bc_type="natural")
+    cs = CubicSpline(x, y, bc_type="natural")
 
-#maksymalizacja okna dla systemu windows oraz zmiana tytułu okna // zakomentować window.state jeśli są problemy
-mng = plt.get_current_fig_manager()
-mng.set_window_title("Animacja dla interpolacji zbioru punktów funkcjami sklejanymi")
-mng.window.state('zoomed')
+    #maksymalizacja okna dla systemu windows oraz zmiana tytułu okna // zakomentować window.state jeśli są problemy
+    mng = plt.get_current_fig_manager()
+    mng.set_window_title("Animacja dla interpolacji zbioru punktów funkcjami sklejanymi")
+    mng.window.state('zoomed')
 
-#zgrupowane wyniki
-plt.title(f"Interpolacja zbioru punktów funkcjami sklejanymi")
-plt.plot(x, y, 'ro', label="Punkty funkcji początkowej")
-plt.ylim(max(y)+1,min(x)-1)
-plt.legend()
-plt.pause(0.5)
-
-xfit = np.linspace(xlsk-2,xpsk+2,100)
-yfit = cs(xfit)
-plt.plot(xfit, yfit, label="Dopasowanie sklejonych funkcji")
-plt.legend()
-
-ii = 1
-for coefficients in cs.c:
-    print(coefficients)
-    plt.pause(0.5)
-    xi = np.linspace(xlsk, xpsk, 100)
-    plt.plot(xi, calc(xi, *coefficients), label=f"Sklejona funkcja nr. {ii}")
+    #zgrupowane wyniki
+    plt.title(f"Interpolacja zbioru punktów funkcjami sklejanymi")
+    plt.plot(x, y, 'ro', label="Punkty funkcji początkowej")
+    plt.ylim(max(y)+1,min(x)-1)
     plt.legend()
-    ii+=1
-del ii
+    plt.pause(0.5)
 
-plt.show()
-plt.close()
+    xfit = np.linspace(xlsk-2,xpsk+2,100)
+    yfit = cs(xfit)
+    plt.plot(xfit, yfit, label="Dopasowanie sklejonych funkcji")
+    plt.legend()
+
+    ii = 1
+    for coefficients in cs.c:
+        print(coefficients)
+        plt.pause(0.5)
+        xi = np.linspace(xlsk, xpsk, 100)
+        plt.plot(xi, calc(xi, *coefficients), label=f"Sklejona funkcja nr. {ii}")
+        plt.legend()
+        ii+=1
+    del ii
+
+    plt.show()
+    plt.close()
