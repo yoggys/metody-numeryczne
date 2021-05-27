@@ -9,9 +9,9 @@ warnings.simplefilter("ignore")
 def func1(wp, t):
     du = np.zeros(4)
     du[0] = wp[1]
-    du[1] = (-3*np.sin(wp[0]) - np.sin(wp[0]-2*wp[2]) - 2*np.sin(wp[0]-wp[2])*((wp[3]**2)+(wp[1]**2)*np.cos(wp[0]-wp[2])))/(3-np.cos(2*wp[0]-wp[2]))
+    du[1] = (-3*np.sin(wp[0]) - np.sin(wp[0]-2*wp[2]) - 2*np.sin(wp[0]-wp[2])*((wp[3]**2)+(wp[1]**2)*np.cos(wp[0]-wp[2])))/(3-np.cos(2*wp[0]-2*wp[2]))
     du[2] = wp[3]
-    du[3] = (2*np.sin(wp[0]-wp[2])*(2*(wp[1]**2)+2*np.cos(wp[0])+(wp[3]**2)*np.cos(wp[0]-wp[2])))/(3-np.cos(2*wp[0]-wp[2]))
+    du[3] = (2*np.sin(wp[0]-wp[2])*(2*(wp[1]**2)+2*np.cos(wp[0])+(wp[3]**2)*np.cos(wp[0]-wp[2])))/(3-np.cos(2*wp[0]-2*wp[2]))
     return du
 
 
