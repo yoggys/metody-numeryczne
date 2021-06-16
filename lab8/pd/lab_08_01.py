@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+#w celu przyśpieszenia działania krok temperatury to 50 stopni
 steps = 10
 N = 1000
 T = range(100, 2000, 50)
@@ -25,7 +26,7 @@ for TT in T:
         m[t] = M/N
     MG.append(m[-1])
 
-fig = plt.figure("Wykres zależności magnetyzacji od temperatury")
+plt.figure("Wykres zależności magnetyzacji od temperatury")
 plt.axis([0, T[-1], -1.1, 1.1])
 plt.plot(T, MG)
 plt.show()

@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as sp
 
+#w celu przyśpieszenia działania krok temperatury to 50 stopni
 steps = 10
 N = 1000
 T = range(100, 2000, 50)
